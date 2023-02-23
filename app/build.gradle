@@ -88,10 +88,10 @@ android {
             dimension 'brand'
             applicationIdSuffix ''
             resValue "string", "app_name", "享成科技"
-//            versionCode 3362
-//            versionName '3.3.62'
-            versionCode 100
-            versionName '1.0.0'
+            versionCode 3363
+            versionName '3.3.63'
+//            versionCode 100
+//            versionName '1.0.0'
         }
         cfd {
             dimension 'brand'
