@@ -104,5 +104,7 @@ lint/tmp/
 
 # Android Profiling
 *.hprof
-
+.idea
 /.gradle/
+/gradle
+output-metadata.json
