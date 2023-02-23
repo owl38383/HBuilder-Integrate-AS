@@ -1,10 +1,11 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.huawei.agconnect'
 
 android {
     compileSdkVersion 30
     buildToolsVersion '30.0.3'
     defaultConfig {
-        applicationId "com.android.simple"
+        applicationId "app.ansource"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
@@ -14,13 +15,37 @@ android {
             sourceCompatibility JavaVersion.VERSION_1_8
             targetCompatibility JavaVersion.VERSION_1_8
         }
+        ndk {
+            abiFilters 'armeabi-v7a', 'x86'
+        }
+        manifestPlaceholders = [
+                "APP_NAME"              : "享成科技",
+                scheme                  : "xc",
+                host                    : "app",
+                "GETUI_APPID"           : "h7zBvoWRFp7V89enRKCvM9",
+                "plus.unipush.appid"    : "h7zBvoWRFp7V89enRKCvM9",
+                "plus.unipush.appkey"   : "pIaizZY1vi98s6dBT6hh98",
+                "plus.unipush.appsecret": "kjcfZtNrAv8d4Qe1wKiW91",
+                "apk.applicationId"     : "app.ansource",
+                "XIAOMI_APP_ID"         : "2882303761520150883",
+                "XIAOMI_APP_KEY"        : "5512015069883",
+                "VIVO_APP_ID"           : "105553571",
+                "VIVO_APP_KEY"          : "c97ffea4976de91dfc0e7748abee727f",
+                "OPPO_APP_KEY"          : "7e0f152a00ac41a8997045a0ca0fbfaa",
+                "OPPO_APP_SECRET"       : "c2592515a4ac438e9330d102c2cc113a",
+                "HUAWEI_APP_ID"         : "105992681",
+                "MEIZU_APP_ID"          : "148056",
+                "MEIZU_APP_KEY"         : "15df86b88c964c9290da3bdf12491ed9",
+                "GAODE_APP_KEY"         : "LVSBZ-XBW3P-O6ZDU-LLDZF-V3G7O-U7F56",
+                dcloud_appkey           : "b300ca3fae8557d1fc64cd7f9bfb8c4f",
+        ]
     }
     signingConfigs {
         config {
-            keyAlias 'key0'
-            keyPassword '123456'
-            storeFile file('test.jks')
-            storePassword '123456'
+            keyAlias 'xc.keystore'
+            keyPassword 'ansource'
+            storeFile file('xc.keystore')
+            storePassword 'ansource'
             v1SigningEnabled true
             v2SigningEnabled true
         }
@@ -34,13 +59,54 @@ android {
         }
         release {
             signingConfig signingConfigs.config
-            minifyEnabled false
+            minifyEnabled false // 混淆
+            zipAlignEnabled false // Zipalign优化
+            shrinkResources false // 移除无用的resource文件
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            //自定义打包时apk名称
+            applicationVariants.all { variant ->
+                variant.outputs.all { output ->
+                    def outputFile = output.outputFile
+                    def fileName
+                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                        // 输出apk名称为fb_xfezt_1.0.0_2.apk
+//                        fileName = "${variant.baseName}-v${variant.versionName}_${variant.versionCode}.apk"
+                        fileName = "${variant.baseName}_${variant.versionCode}.apk"
+                        outputFileName = fileName
+                    }
+                }
+            }
         }
     }
     aaptOptions {
         additionalParameters '--auto-add-overlay'
         ignoreAssetsPattern "!.svn:!.git:.*:!CVS:!thumbs.db:!picasa.ini:!*.scc:*~"
+    }
+    flavorDimensions 'brand'
+    productFlavors {
+        xc {
+            dimension 'brand'
+            applicationIdSuffix ''
+            resValue "string", "app_name", "享成科技"
+//            versionCode 3362
+//            versionName '3.3.62'
+            versionCode 100
+            versionName '1.0.0'
+        }
+        cfd {
+            dimension 'brand'
+            applicationIdSuffix ''
+            resValue "string", "app_name", "京唐消防设施"
+            versionCode 208
+            versionName "2.0.8"
+        }
+        wx { // 万信 雨淋阀
+            dimension 'brand'
+            applicationIdSuffix ''
+            resValue "string", "app_name", "享安全"
+            versionCode 200
+            versionName "2.0.0"
+        }
     }
 }
 
@@ -54,5 +120,10 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     implementation 'com.alibaba:fastjson:1.1.46.android'
     implementation 'androidx.webkit:webkit:1.3.0'
+
+    implementation 'com.google.code.gson:gson:2.6.2'
+    implementation 'commons-codec:commons-codec:1.6'
+    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'com.huawei.hms:push:6.5.0.300'
 }
 
