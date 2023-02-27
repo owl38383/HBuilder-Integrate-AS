@@ -87,9 +87,9 @@ android {
         xc {
             dimension 'brand'
             applicationIdSuffix ''
-            resValue "string", "app_name", "享成科技"
-            versionCode 3363
-            versionName '3.3.63'
+            resValue "string", "app_name", "享安全"
+            versionCode 3364
+            versionName '3.3.64'
 //            versionCode 100
 //            versionName '1.0.0'
         }
