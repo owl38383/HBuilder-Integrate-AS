@@ -87,7 +87,7 @@ android {
         xc {
             dimension 'brand'
             applicationIdSuffix ''
-            resValue "string", "app_name", "享安全"
+            resValue ("string", "app_name", "享安全")
             versionCode 3364
             versionName '3.3.64'
 //            versionCode 100
@@ -96,16 +96,23 @@ android {
         cfd {
             dimension 'brand'
             applicationIdSuffix ''
-            resValue "string", "app_name", "京唐消防设施"
+            resValue ("string", "app_name", "京唐消防设施")
             versionCode 208
             versionName "2.0.8"
         }
         wx { // 万信 雨淋阀
             dimension 'brand'
             applicationIdSuffix ''
-            resValue "string", "app_name", "享安全"
-            versionCode 200
-            versionName "2.0.0"
+            resValue ("string", "app_name", "享安全-雨淋阀")
+            versionCode 204
+            versionName "2.0.4"
+        }
+        'xc-wb' { // 享成 维保
+            dimension 'brand'
+            applicationIdSuffix ''
+            resValue ("string", "app_name", "享安全-维保")
+            versionCode 205
+            versionName "2.0.5"
         }
     }
 }
