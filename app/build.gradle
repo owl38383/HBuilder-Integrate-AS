@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.huawei.agconnect'
+//apply plugin: 'com.huawei.agconnect'
 
 android {
     compileSdkVersion 30
@@ -19,7 +19,6 @@ android {
             abiFilters 'armeabi-v7a', 'x86'
         }
         manifestPlaceholders = [
-                "APP_NAME"              : "享成科技",
                 scheme                  : "xc",
                 host                    : "app",
                 "GETUI_APPID"           : "h7zBvoWRFp7V89enRKCvM9",
@@ -41,10 +40,37 @@ android {
         ]
     }
     signingConfigs {
-        config {
+        xc {
             keyAlias 'xc.keystore'
             keyPassword 'ansource'
-            storeFile file('xc.keystore')
+            storeFile file('D:\\keystore\\xc.keystore')
+            storePassword 'ansource'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+
+        cfd {
+            keyAlias 'cfd.jks'
+            keyPassword 'ansource'
+            storeFile file('D:\\keystore\\cfd.jks')
+            storePassword 'ansource'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+
+        xcwb {
+            keyAlias 'xcwb.jks'
+            keyPassword 'ansource'
+            storeFile file('D:\\keystore\\xcwb.jks')
+            storePassword 'ansource'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+
+        xcylf {
+            keyAlias 'xcylf.jks'
+            keyPassword 'ansource'
+            storeFile file('D:\\keystore\\xcylf.jks')
             storePassword 'ansource'
             v1SigningEnabled true
             v2SigningEnabled true
@@ -53,12 +79,10 @@ android {
 
     buildTypes {
         debug {
-            signingConfig signingConfigs.config
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         release {
-            signingConfig signingConfigs.config
             minifyEnabled false // 混淆
             zipAlignEnabled false // Zipalign优化
             shrinkResources false // 移除无用的resource文件
@@ -85,32 +109,46 @@ android {
     flavorDimensions 'brand'
     productFlavors {
         xc {
+            signingConfig signingConfigs.xc
             dimension 'brand'
             applicationIdSuffix ''
-            resValue ("string", "app_name", "享安全")
+            resValue("string", "app_name", "享安全")
+            manifestPlaceholders = [
+                    dcloud_appkey: "b300ca3fae8557d1fc64cd7f9bfb8c4f"
+            ]
             versionCode 3364
             versionName '3.3.64'
-//            versionCode 100
-//            versionName '1.0.0'
         }
-        cfd {
+        cfd { //曹妃甸
+            signingConfig signingConfigs.cfd
             dimension 'brand'
-            applicationIdSuffix ''
-            resValue ("string", "app_name", "京唐消防设施")
+            applicationIdSuffix 'cfd'
+            resValue("string", "app_name", "京唐消防设施")
+            manifestPlaceholders = [
+                    dcloud_appkey: "24b1a511dc3a335116383214a9697e70"
+            ]
             versionCode 208
             versionName "2.0.8"
         }
         wx { // 万信 雨淋阀
+            signingConfig signingConfigs.xcylf
             dimension 'brand'
-            applicationIdSuffix ''
-            resValue ("string", "app_name", "享安全-雨淋阀")
+            applicationIdSuffix 'xcylf'
+            resValue("string", "app_name", "享安全-雨淋阀")
+            manifestPlaceholders = [
+                    dcloud_appkey: "bd71698283b9996c5643f18cd9e19264"
+            ]
             versionCode 204
             versionName "2.0.4"
         }
-        'xc-wb' { // 享成 维保
+        xcwb { // 享成 维保
+            signingConfig signingConfigs.xcwb
             dimension 'brand'
-            applicationIdSuffix ''
-            resValue ("string", "app_name", "享安全-维保")
+            applicationIdSuffix 'xcwb'
+            resValue("string", "app_name", "享安全-维保")
+            manifestPlaceholders = [
+                    dcloud_appkey: "80e5512ee8ce00d1d0bdc36522fd08bb"
+            ]
             versionCode 205
             versionName "2.0.5"
         }

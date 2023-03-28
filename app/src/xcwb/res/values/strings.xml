@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">享成科技-维保</string>
     <string name="dcloud_privacy_prompt_title">服务协议和隐私政策</string>
     <string name="dcloud_privacy_prompt_accept_button_text">同意并接受</string>
     <string name="dcloud_privacy_prompt_refuse_button_text">暂不同意</string>

@@ -89,7 +89,7 @@
                 <!--CATEGORY_BROWSABLE：可被Web浏览器唤起-->
                 <category android:name="android.intent.category.BROWSABLE" />
                 <!--data：一个或多个，必须含有scheme标签，决定被唤起的URL格式-->
-                <data android:scheme="${scheme}" android:host="#{host}" />
+                <data android:scheme="${scheme}" android:host="${host}" />
             </intent-filter>
         </activity>
 
