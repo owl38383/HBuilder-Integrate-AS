@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-//apply plugin: 'com.huawei.agconnect'
+apply plugin: 'com.huawei.agconnect'
 
 android {
     compileSdkVersion 30
@@ -36,7 +36,6 @@ android {
                 "MEIZU_APP_ID"          : "148056",
                 "MEIZU_APP_KEY"         : "15df86b88c964c9290da3bdf12491ed9",
                 "GAODE_APP_KEY"         : "LVSBZ-XBW3P-O6ZDU-LLDZF-V3G7O-U7F56",
-                dcloud_appkey           : "b300ca3fae8557d1fc64cd7f9bfb8c4f",
         ]
     }
     signingConfigs {
@@ -130,7 +129,7 @@ android {
             versionCode 208
             versionName "2.0.8"
         }
-        wx { // 万信 雨淋阀
+        xcylf { // 享成 雨淋阀
             signingConfig signingConfigs.xcylf
             dimension 'brand'
             applicationIdSuffix 'xcylf'
@@ -149,8 +148,8 @@ android {
             manifestPlaceholders = [
                     dcloud_appkey: "80e5512ee8ce00d1d0bdc36522fd08bb"
             ]
-            versionCode 205
-            versionName "2.0.5"
+            versionCode 206
+            versionName "2.0.6"
         }
     }
 }
