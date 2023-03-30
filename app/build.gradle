@@ -47,33 +47,6 @@ android {
             v1SigningEnabled true
             v2SigningEnabled true
         }
-
-        cfd {
-            keyAlias 'cfd.jks'
-            keyPassword 'ansource'
-            storeFile file('D:\\keystore\\cfd.jks')
-            storePassword 'ansource'
-            v1SigningEnabled true
-            v2SigningEnabled true
-        }
-
-        xcwb {
-            keyAlias 'xcwb.jks'
-            keyPassword 'ansource'
-            storeFile file('D:\\keystore\\xcwb.jks')
-            storePassword 'ansource'
-            v1SigningEnabled true
-            v2SigningEnabled true
-        }
-
-        xcylf {
-            keyAlias 'xcylf.jks'
-            keyPassword 'ansource'
-            storeFile file('D:\\keystore\\xcylf.jks')
-            storePassword 'ansource'
-            v1SigningEnabled true
-            v2SigningEnabled true
-        }
     }
 
     buildTypes {
@@ -82,6 +55,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         release {
+            signingConfig signingConfigs.xc
             minifyEnabled false // 混淆
             zipAlignEnabled false // Zipalign优化
             shrinkResources false // 移除无用的resource文件
@@ -108,7 +82,6 @@ android {
     flavorDimensions 'brand'
     productFlavors {
         xc {
-            signingConfig signingConfigs.xc
             dimension 'brand'
             applicationIdSuffix ''
             resValue("string", "app_name", "享安全")
@@ -119,34 +92,31 @@ android {
             versionName '3.3.64'
         }
         cfd { //曹妃甸
-            signingConfig signingConfigs.cfd
             dimension 'brand'
             applicationIdSuffix 'cfd'
             resValue("string", "app_name", "京唐消防设施")
             manifestPlaceholders = [
-                    dcloud_appkey: "24b1a511dc3a335116383214a9697e70"
+                    dcloud_appkey: "a146140f9b8a4cc27cf69d0b22b218c0"
             ]
             versionCode 208
             versionName "2.0.8"
         }
         xcylf { // 享成 雨淋阀
-            signingConfig signingConfigs.xcylf
             dimension 'brand'
             applicationIdSuffix 'xcylf'
             resValue("string", "app_name", "享安全-雨淋阀")
             manifestPlaceholders = [
-                    dcloud_appkey: "bd71698283b9996c5643f18cd9e19264"
+                    dcloud_appkey: "bc34dcffa09bf5f6e6ad977dc04bbbf8"
             ]
             versionCode 204
             versionName "2.0.4"
         }
         xcwb { // 享成 维保
-            signingConfig signingConfigs.xcwb
             dimension 'brand'
             applicationIdSuffix 'xcwb'
             resValue("string", "app_name", "享安全-维保")
             manifestPlaceholders = [
-                    dcloud_appkey: "80e5512ee8ce00d1d0bdc36522fd08bb"
+                    dcloud_appkey: "dc52ac9abd5e8caa88748dbc5c008297"
             ]
             versionCode 206
             versionName "2.0.6"
