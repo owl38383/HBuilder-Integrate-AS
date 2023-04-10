@@ -42,7 +42,7 @@ android {
         xc {
             keyAlias 'xc.keystore'
             keyPassword 'ansource'
-            storeFile file('D:\\keystore\\xc.keystore')
+            storeFile file('xc.keystore')
             storePassword 'ansource'
             v1SigningEnabled true
             v2SigningEnabled true
@@ -108,8 +108,8 @@ android {
             manifestPlaceholders = [
                     dcloud_appkey: "bc34dcffa09bf5f6e6ad977dc04bbbf8"
             ]
-            versionCode 204
-            versionName "2.0.4"
+            versionCode 205
+            versionName "2.0.5"
         }
         xcwb { // 享成 维保
             dimension 'brand'
@@ -118,8 +118,8 @@ android {
             manifestPlaceholders = [
                     dcloud_appkey: "dc52ac9abd5e8caa88748dbc5c008297"
             ]
-            versionCode 206
-            versionName "2.0.6"
+            versionCode 209
+            versionName "2.0.9"
         }
     }
 }
