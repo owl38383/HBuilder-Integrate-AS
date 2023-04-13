@@ -118,8 +118,8 @@ android {
             manifestPlaceholders = [
                     dcloud_appkey: "dc52ac9abd5e8caa88748dbc5c008297"
             ]
-            versionCode 209
-            versionName "2.0.9"
+            versionCode 211
+            versionName "2.1.1"
         }
     }
 }
