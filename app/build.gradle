@@ -16,7 +16,9 @@ android {
             targetCompatibility JavaVersion.VERSION_1_8
         }
         ndk {
-            abiFilters 'armeabi-v7a', 'x86'
+//            abiFilters 'armeabi-v7a', 'x86'
+//            abiFilters 'arm64-v8a', 'x86_64'
+            abiFilters 'arm64-v8a', 'x86_64','armeabi-v7a', 'x86'
         }
         manifestPlaceholders = [
                 scheme                  : "xc",
@@ -48,7 +50,10 @@ android {
             v2SigningEnabled true
         }
     }
-
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
     buildTypes {
         debug {
             minifyEnabled false
@@ -88,8 +93,8 @@ android {
             manifestPlaceholders = [
                     dcloud_appkey: "b300ca3fae8557d1fc64cd7f9bfb8c4f"
             ]
-            versionCode 3364
-            versionName '3.3.64'
+            versionCode 101
+            versionName '1.0.1'
         }
         cfd { //曹妃甸
             dimension 'brand'
