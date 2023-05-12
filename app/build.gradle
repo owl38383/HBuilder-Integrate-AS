@@ -89,12 +89,12 @@ android {
         xc {
             dimension 'brand'
             applicationIdSuffix ''
-            resValue("string", "app_name", "享安全")
+            resValue("string", "app_name", "智慧消防APP软件")
             manifestPlaceholders = [
                     dcloud_appkey: "b300ca3fae8557d1fc64cd7f9bfb8c4f"
             ]
-            versionCode 101
-            versionName '1.0.1'
+            versionCode 3362
+            versionName '3.3.61'
         }
         cfd { //曹妃甸
             dimension 'brand'
@@ -123,8 +123,8 @@ android {
             manifestPlaceholders = [
                     dcloud_appkey: "dc52ac9abd5e8caa88748dbc5c008297"
             ]
-            versionCode 211
-            versionName "2.1.1"
+            versionCode 214
+            versionName "2.1.4"
         }
     }
 }
