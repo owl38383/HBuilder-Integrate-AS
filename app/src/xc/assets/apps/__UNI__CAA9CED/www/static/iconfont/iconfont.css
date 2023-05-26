@@ -1,5 +1,6 @@
 @font-face {
-  font-family: "custom-icon"; /* Project id 3184382 */
+  font-family: "custom-icon";
+  /* Project id 3184382 */
   src: url('static/iconfont/iconfont.woff2') format('woff2');
 }
 
@@ -9,6 +10,22 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.custom-icon-a-Frame47970:before {
+  content: "\e62f";
+}
+
+.custom-icon-dailingqu:before {
+  content: "\e630";
+}
+
+.custom-icon-yiwancheng:before {
+  content: "\e69";
+}
+
+.custom-icon-daijieshou1:before {
+  content: "\e62a";
 }
 
 .custom-icon-wancheng:before {
@@ -638,4 +655,3 @@
 .custom-icon-pinpai:before {
   content: "\e7b8";
 }
-

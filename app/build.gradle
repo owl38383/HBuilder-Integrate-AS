@@ -73,7 +73,7 @@ android {
                     if (outputFile != null && outputFile.name.endsWith('.apk')) {
                         // 输出apk名称为fb_xfezt_1.0.0_2.apk
 //                        fileName = "${variant.baseName}-v${variant.versionName}_${variant.versionCode}.apk"
-                        fileName = "${variant.baseName}_${variant.versionCode}.apk"
+                        fileName = "${variant.baseName}_${variant.versionCode}_${System.currentTimeMillis()}.apk"
                         outputFileName = fileName
                     }
                 }
@@ -93,8 +93,8 @@ android {
             manifestPlaceholders = [
                     dcloud_appkey: "b300ca3fae8557d1fc64cd7f9bfb8c4f"
             ]
-            versionCode 3362
-            versionName '3.3.61'
+            versionCode 3365
+            versionName '3.3.65'
         }
         cfd { //曹妃甸
             dimension 'brand'
