@@ -89,7 +89,7 @@ android {
         xc {
             dimension 'brand'
             applicationIdSuffix ''
-            resValue("string", "app_name", "智慧消防APP软件")
+            resValue("string", "app_name", "享安全")
             manifestPlaceholders = [
                     dcloud_appkey: "b300ca3fae8557d1fc64cd7f9bfb8c4f"
             ]
