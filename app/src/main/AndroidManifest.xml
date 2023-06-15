@@ -127,7 +127,7 @@
             android:value="${dcloud_appkey}" />
 
         <!--配置高德地图——开始-->
-        <meta-data android:name="com.amap.api.v2.apikey\" android:value="%${GAODE_APP_KEY}%\"/>
+        <meta-data android:name="com.amap.api.v2.apikey\" android:value="${GAODE_APP_KEY}\"/>
         <service android:name="com.amap.api.location.APSService" />
 
         <!--配置高德地图——结束-->

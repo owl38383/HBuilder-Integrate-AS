@@ -37,7 +37,8 @@ android {
                 "HUAWEI_APP_ID"         : "105992681",
                 "MEIZU_APP_ID"          : "148056",
                 "MEIZU_APP_KEY"         : "15df86b88c964c9290da3bdf12491ed9",
-                "GAODE_APP_KEY"         : "LVSBZ-XBW3P-O6ZDU-LLDZF-V3G7O-U7F56",
+//                "GAODE_APP_KEY"         : "LVSBZ-XBW3P-O6ZDU-LLDZF-V3G7O-U7F56",
+                "GAODE_APP_KEY"         : "cc0726e84f5aaea07a41c874cc9dcb4e",
         ]
     }
     signingConfigs {
@@ -103,28 +104,8 @@ android {
             manifestPlaceholders = [
                     dcloud_appkey: "a146140f9b8a4cc27cf69d0b22b218c0"
             ]
-            versionCode 208
-            versionName "2.0.8"
-        }
-        xcylf { // 享成 雨淋阀
-            dimension 'brand'
-            applicationIdSuffix 'xcylf'
-            resValue("string", "app_name", "享安全-雨淋阀")
-            manifestPlaceholders = [
-                    dcloud_appkey: "bc34dcffa09bf5f6e6ad977dc04bbbf8"
-            ]
-            versionCode 206
-            versionName "2.0.6"
-        }
-        xcwb { // 享成 维保
-            dimension 'brand'
-            applicationIdSuffix 'xcwb'
-            resValue("string", "app_name", "享安全-维保")
-            manifestPlaceholders = [
-                    dcloud_appkey: "dc52ac9abd5e8caa88748dbc5c008297"
-            ]
-            versionCode 214
-            versionName "2.1.4"
+            versionCode 209
+            versionName "2.0.9"
         }
     }
 }
