@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat
+
 apply plugin: 'com.android.application'
 apply plugin: 'com.huawei.agconnect'
 
@@ -74,7 +76,9 @@ android {
                     if (outputFile != null && outputFile.name.endsWith('.apk')) {
                         // 输出apk名称为fb_xfezt_1.0.0_2.apk
 //                        fileName = "${variant.baseName}-v${variant.versionName}_${variant.versionCode}.apk"
-                        fileName = "${variant.baseName}_${variant.versionCode}_${System.currentTimeMillis()}.apk"
+                        SimpleDateFormat dateFormat =new SimpleDateFormat("yyyyMMddHHmmss");
+                        String formattedDate = dateFormat.format(new Date());
+                        fileName = "${variant.baseName}_${variant.versionCode}_${formattedDate}.apk"
                         outputFileName = fileName
                     }
                 }

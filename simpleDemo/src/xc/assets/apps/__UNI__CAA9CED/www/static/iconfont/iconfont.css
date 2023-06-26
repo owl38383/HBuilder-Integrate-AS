@@ -12,6 +12,22 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.custom-icon-kaiguan:before {
+  content: "\e634";
+}
+
+.custom-icon-Vector:before {
+  content: "\e633";
+}
+
+.custom-icon-a-xiaoyin1:before {
+  content: "\e632";
+}
+
+.custom-icon-caozuo-kaiguan:before {
+  content: "\e631";
+}
+
 .custom-icon-a-Frame47970:before {
   content: "\e62f";
 }
@@ -655,3 +671,4 @@
 .custom-icon-pinpai:before {
   content: "\e7b8";
 }
+
