@@ -1,8 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.simple">
+    package="app.ansource">
+    <!-- 网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 存储权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!--定位-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!--读取日志-->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
+    <!--相机权限-->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <!-- 安装APK权限 -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
     <application
+        android:testOnly="false"
         android:allowBackup="true"
         android:allowClearUserData="true"
         android:icon="@drawable/icon"
@@ -12,22 +40,48 @@
         <activity
             android:name="io.dcloud.PandoraEntry"
             android:configChanges="orientation|keyboardHidden|keyboard|navigation"
+            android:hardwareAccelerated="true"
             android:label="@string/app_name"
             android:launchMode="singleTask"
-            android:hardwareAccelerated="true"
-            android:theme="@style/TranslucentTheme"
             android:screenOrientation="user"
-            android:windowSoftInputMode="adjustResize" >
+            android:theme="@style/TranslucentTheme"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <!--Push配置开始-->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:host="io.dcloud.unipush" android:path="/" android:scheme="unipush" />
+            </intent-filter>
+            <!--Push配置结束-->
+            <!--oppo配置开始-->
+            <intent-filter>
+                <action android:name="android.intent.action.oppopush" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <!--oppo配置结束-->
+            <!--DeepLink h5唤醒app配置-->
+            <intent-filter>
+                <!--ACTION_VIEW：支持被检索-->
+                <action android:name="android.intent.action.VIEW" />
+                <!--CATEGORY_DEFAULT：响应隐式Intent-->
+                <category android:name="android.intent.category.DEFAULT" />
+                <!--CATEGORY_BROWSABLE：可被Web浏览器唤起-->
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!--data：一个或多个，必须含有scheme标签，决定被唤起的URL格式-->
+                <data android:scheme="${scheme}" android:host="${host}" />
+                <data android:scheme="xckj" android:host="app.ansource" />
+            </intent-filter>
         </activity>
         <activity
             android:name="io.dcloud.PandoraEntryActivity"
-            android:launchMode="singleTask"
             android:configChanges="orientation|keyboardHidden|screenSize|mcc|mnc|fontScale|keyboard|smallestScreenSize|screenLayout|screenSize|uiMode"
             android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
             android:permission="com.miui.securitycenter.permission.AppPermissionsEditor"
             android:screenOrientation="user"
             android:theme="@style/DCloudTheme"
@@ -35,13 +89,63 @@
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <action android:name="android.intent.action.VIEW" />
                 <data android:scheme=" " />
             </intent-filter>
         </activity>
+        <!--配置打包key-->
         <meta-data
             android:name="dcloud_appkey"
-            android:value="开发者需登录https://dev.dcloud.net.cn/申请签名" />
+            android:value="${dcloud_appkey}" />
+        <!--配置打包key 结束-->
+
+        <!--配置高德地图——开始-->
+        <meta-data android:name="com.amap.api.v2.apikey" android:value="${GAODE_APP_KEY}"/>
+        <service android:name="com.amap.api.location.APSService" />
+        <!--配置高德地图——结束-->
+
+        <!--小米厂商配置——开始-->
+        <meta-data
+            android:name="MIPUSH_APPID"
+            android:value="XM_${XIAOMI_APP_ID}" />
+        <meta-data
+            android:name="MIPUSH_APPKEY"
+            android:value="XM_${XIAOMI_APP_KEY}" />
+        <!--小米厂商配置——结束-->
+        <!--魅族厂商配置——开始-->
+        <meta-data
+            android:name="MEIZUPUSH_APPID"
+            android:value="MZ_${MEIZU_APP_ID}" />
+        <meta-data
+            android:name="MEIZUPUSH_APPKEY"
+            android:value="MZ_${MEIZU_APP_KEY}" />
+        <!--魅族厂商配置——结束-->
+        <!--华为厂商配置——开始-->
+        <meta-data
+            android:name="com.huawei.hms.client.appid"
+            android:value="${HUAWEI_APP_ID}" />
+        <!--华为厂商配置——结束-->
+        <!--OPPO厂商配置——开始-->
+        <meta-data
+            android:name="OPPOPUSH_APPKEY"
+            android:value="OP_${OPPO_APP_KEY}" />
+        <meta-data
+            android:name="OPPOPUSH_APPSECRET"
+            android:value="OP_${OPPO_APP_SECRET}" />
+        <!--OPPO厂商配置——结束-->
+        <!--VIVO厂商配置——开始-->
+        <meta-data
+            android:name="com.vivo.push.app_id"
+            android:value="${VIVO_APP_ID}" />
+        <meta-data
+            android:name="com.vivo.push.api_key"
+            android:value="${VIVO_APP_KEY}" />
+        <!--VIVO厂商配置——结束-->
+        <!--存储权限弹窗配置 首次不弹出-->
+        <meta-data android:name="DCLOUD_WRITE_EXTERNAL_STORAGE" android:value="none"/>
+        <!--读取手机状态弹窗配置 首次不弹出-->
+        <meta-data android:name="DCLOUD_READ_PHONE_STATE" android:value="none"/>
     </application>
 
 </manifest>
