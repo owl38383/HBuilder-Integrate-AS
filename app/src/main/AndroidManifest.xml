@@ -64,18 +64,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <!--oppo配置结束-->
-            <!--DeepLink h5唤醒app配置-->
-            <intent-filter>
-                <!--ACTION_VIEW：支持被检索-->
-                <action android:name="android.intent.action.VIEW" />
-                <!--CATEGORY_DEFAULT：响应隐式Intent-->
-                <category android:name="android.intent.category.DEFAULT" />
-                <!--CATEGORY_BROWSABLE：可被Web浏览器唤起-->
-                <category android:name="android.intent.category.BROWSABLE" />
-                <!--data：一个或多个，必须含有scheme标签，决定被唤起的URL格式-->
-                <data android:scheme="${scheme}" android:host="${host}" />
-                <data android:scheme="xckj" android:host="app.ansource" />
-            </intent-filter>
         </activity>
         <activity
             android:name="io.dcloud.PandoraEntryActivity"
@@ -86,12 +74,18 @@
             android:screenOrientation="user"
             android:theme="@style/DCloudTheme"
             android:windowSoftInputMode="adjustResize">
+            <!--DeepLink h5唤醒app配置-->
             <intent-filter>
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
+                <!--ACTION_VIEW：支持被检索-->
                 <action android:name="android.intent.action.VIEW" />
-                <data android:scheme=" " />
+                <!--CATEGORY_DEFAULT：响应隐式Intent-->
+                <category android:name="android.intent.category.DEFAULT" />
+                <!--CATEGORY_BROWSABLE：可被Web浏览器唤起-->
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!--data：一个或多个，必须含有scheme标签，决定被唤起的URL格式-->
+                <data android:scheme="${scheme}" android:host="${host}" />
+                <data android:scheme="xckj" android:host="app.ansource" android:path="/home" />
+                <data android:scheme="xc" android:host="app.ansource" android:path="/home" />
             </intent-filter>
         </activity>
         <!--配置打包key-->

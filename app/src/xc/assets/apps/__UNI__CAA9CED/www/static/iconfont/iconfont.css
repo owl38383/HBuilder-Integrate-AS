@@ -12,6 +12,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.custom-icon-shenpi1:before {
+  content: "\e680";
+}
+
+.custom-icon-shenpi:before {
+  content: "\e62c";
+}
+
 .custom-icon-kaiguan:before {
   content: "\e634";
 }
