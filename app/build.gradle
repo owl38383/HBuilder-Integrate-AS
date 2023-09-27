@@ -9,7 +9,7 @@ android {
     defaultConfig {
         applicationId "app.ansource"
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -102,7 +102,7 @@ android {
                     dcloud_appkey: "b300ca3fae8557d1fc64cd7f9bfb8c4f"
             ]
             versionCode 3372
-            versionName '3.3.71'
+            versionName '3.3.72'
         }
         cfd { //曹妃甸
             dimension 'brand'
