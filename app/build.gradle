@@ -101,8 +101,8 @@ android {
             manifestPlaceholders = [
                     dcloud_appkey: "b300ca3fae8557d1fc64cd7f9bfb8c4f"
             ]
-            versionCode 3380
-            versionName '3.3.80'
+            versionCode 3381
+            versionName '3.3.81'
         }
         cfd { //曹妃甸
             dimension 'brand'
