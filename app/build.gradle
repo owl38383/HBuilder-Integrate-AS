@@ -104,6 +104,16 @@ android {
             versionCode 3394
             versionName '3.3.94'
         }
+        wugang {
+            dimension 'brand'
+//            applicationIdSuffix ''
+            resValue("string", "app_name", "享安全")
+            manifestPlaceholders = [
+                    dcloud_appkey: "b300ca3fae8557d1fc64cd7f9bfb8c4f"
+            ]
+            versionCode 3394
+            versionName '3.3.94'
+        }
         cfd { //曹妃甸
             dimension 'brand'
             applicationIdSuffix 'cfd'
