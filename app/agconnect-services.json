@@ -31,17 +31,17 @@
 		"client_id":"872416807271547776",
 		"client_secret":"F5A65E7DE99D3A0D66EA02FEB5C28ED620F015272E257062A7A08BFA0452F52E",
 		"project_id":"99536292102187775",
-		"app_id":"107953225",
+		"app_id":"110677481",
 		"api_key":"DAEDAN03V8+Jvon/ATeHKPrBGn+f8HKVbVJZhA96Pdif3ixWvnKJxLeRAsaQ+7aLQi4pqMNTQVLjU3NDWe2p3CvtKg+YI8ojBNwUdA==",
-		"package_name":"app.ansource.cfd"
+		"package_name":"app.ansource.wugang"
 	},
 	"oauth_client":{
-		"client_id":"107953225",
+		"client_id":"110677481",
 		"client_type":1
 	},
 	"app_info":{
-		"app_id":"107953225",
-		"package_name":"app.ansource.cfd"
+		"app_id":"110677481",
+		"package_name":"app.ansource.wugang"
 	},
 	"service":{
 		"analytics":{
@@ -54,8 +54,8 @@
 			"channel_id":""
 		},
 		"edukit":{
-			"edu_url":"edukit.edu.cloud.huawei.com.cn",
-			"dh_url":"edukit.edu.cloud.huawei.com.cn"
+			"edu_url":"edukit.cloud.huawei.com.cn",
+			"dh_url":"edukit.cloud.huawei.com.cn"
 		},
 		"search":{
 			"url":"https://search-drcn.cloud.huawei.com"
@@ -78,6 +78,34 @@
 	"region":"CN",
 	"configuration_version":"3.0",
 	"appInfos":[
+		{
+			"package_name":"app.ansource.wugang",
+			"client":{
+				"app_id":"110677481"
+			},
+			"app_info":{
+				"package_name":"app.ansource.wugang",
+				"app_id":"110677481"
+			},
+			"oauth_client":{
+				"client_type":1,
+				"client_id":"110677481"
+			}
+		},
+		{
+			"package_name":"app.ansource",
+			"client":{
+				"app_id":"105992681"
+			},
+			"app_info":{
+				"package_name":"app.ansource",
+				"app_id":"105992681"
+			},
+			"oauth_client":{
+				"client_type":1,
+				"client_id":"105992681"
+			}
+		},
 		{
 			"package_name":"app.ansource.cfd",
 			"client":{
@@ -118,20 +146,6 @@
 			"oauth_client":{
 				"client_type":1,
 				"client_id":"107953205"
-			}
-		},
-		{
-			"package_name":"app.ansource",
-			"client":{
-				"app_id":"105992681"
-			},
-			"app_info":{
-				"package_name":"app.ansource",
-				"app_id":"105992681"
-			},
-			"oauth_client":{
-				"client_type":1,
-				"client_id":"105992681"
 			}
 		}
 	]

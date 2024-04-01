@@ -106,10 +106,10 @@ android {
         }
         wugang {
             dimension 'brand'
-//            applicationIdSuffix ''
-            resValue("string", "app_name", "享安全")
+            applicationIdSuffix 'wugang'
+            resValue("string", "app_name", "武钢消防")
             manifestPlaceholders = [
-                    dcloud_appkey: "b300ca3fae8557d1fc64cd7f9bfb8c4f"
+                    dcloud_appkey: "2bee8800e09957107b17c3f058a0543f"
             ]
             versionCode 3394
             versionName '3.3.94'
