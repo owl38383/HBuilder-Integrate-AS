@@ -76,7 +76,7 @@ android {
                     if (outputFile != null && outputFile.name.endsWith('.apk')) {
                         // 输出apk名称为fb_xfezt_1.0.0_2.apk
 //                        fileName = "${variant.baseName}-v${variant.versionName}_${variant.versionCode}.apk"
-                        SimpleDateFormat dateFormat =new SimpleDateFormat("yyyyMMddHHmmss");
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
                         String formattedDate = dateFormat.format(new Date());
                         fileName = "${variant.baseName}_${variant.versionCode}_${formattedDate}.apk"
                         outputFileName = fileName
@@ -99,7 +99,8 @@ android {
 //            applicationIdSuffix ''
             resValue("string", "app_name", "享安全")
             manifestPlaceholders = [
-                    dcloud_appkey: "b300ca3fae8557d1fc64cd7f9bfb8c4f"
+                    dcloud_appkey  : "b300ca3fae8557d1fc64cd7f9bfb8c4f",
+                    "HUAWEI_APP_ID": "105992681",
             ]
             versionCode 3394
             versionName '3.3.94'
@@ -109,7 +110,8 @@ android {
             applicationIdSuffix 'wugang'
             resValue("string", "app_name", "武钢消防")
             manifestPlaceholders = [
-                    dcloud_appkey: "2bee8800e09957107b17c3f058a0543f"
+                    dcloud_appkey  : "2bee8800e09957107b17c3f058a0543f",
+                    "HUAWEI_APP_ID": "110677481",
             ]
             versionCode 3394
             versionName '3.3.94'
@@ -119,7 +121,8 @@ android {
             applicationIdSuffix 'cfd'
             resValue("string", "app_name", "京唐消防设施")
             manifestPlaceholders = [
-                    dcloud_appkey: "a146140f9b8a4cc27cf69d0b22b218c0"
+                    dcloud_appkey  : "a146140f9b8a4cc27cf69d0b22b218c0",
+                    "HUAWEI_APP_ID": "107953225",
             ]
             versionCode 300
             versionName "3.0.0"
