@@ -108,13 +108,13 @@ android {
         wugang {
             dimension 'brand'
             applicationIdSuffix 'wugang'
-            resValue("string", "app_name", "武钢消防")
+            resValue("string", "app_name", "消防一站通")
             manifestPlaceholders = [
                     dcloud_appkey  : "2bee8800e09957107b17c3f058a0543f",
                     "HUAWEI_APP_ID": "110677481",
             ]
-            versionCode 3394
-            versionName '3.3.94'
+            versionCode 3396
+            versionName '3.3.96'
         }
         cfd { //曹妃甸
             dimension 'brand'
@@ -135,7 +135,7 @@ repositories {
     }
 }
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'], exclude: [])
+    implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'], exclude: ['debug-server-release.aar'])
     implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
