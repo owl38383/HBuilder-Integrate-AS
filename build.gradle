@@ -7,6 +7,10 @@ buildscript {
         maven {url 'https://maven.aliyun.com/repository/public'}
         // 配置HMS Core SDK的Maven仓地址。
         maven {url 'https://developer.huawei.com/repo/'}
+        // 配置荣耀的Maven仓地址。
+//        maven {
+//            url 'https://developer.hihonor.com/repo/'
+//        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.2.2'
@@ -24,6 +28,14 @@ allprojects {
         maven {url 'https://maven.aliyun.com/repository/public'}
         // 配置HMS Core SDK的Maven仓地址。
         maven {url 'https://developer.huawei.com/repo/'}
+        // 个推的Maven仓地址。
+        maven {
+            url 'https://mvn.getui.com/nexus/content/repositories/releases'
+        }
+        // 配置荣耀的Maven仓地址。
+//        maven {
+//            url 'https://developer.hihonor.com/repo/'
+//        }
     }
 }
 

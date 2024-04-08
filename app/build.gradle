@@ -9,7 +9,7 @@ android {
     defaultConfig {
         applicationId "app.ansource"
         minSdkVersion 21
-        targetSdkVersion 29
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -27,20 +27,21 @@ android {
         manifestPlaceholders = [
                 "scheme"                : "xc",
                 "host"                  : "app",
-                "GETUI_APPID"           : "h7zBvoWRFp7V89enRKCvM9",
-                "plus.unipush.appid"    : "h7zBvoWRFp7V89enRKCvM9",
-                "plus.unipush.appkey"   : "pIaizZY1vi98s6dBT6hh98",
-                "plus.unipush.appsecret": "kjcfZtNrAv8d4Qe1wKiW91",
                 "apk.applicationId"     : "app.ansource",
+                "GETUI_APPID"           : "MbJEYHlmrR6gclhcTJT919",
+                "plus.unipush.appid"    : "MbJEYHlmrR6gclhcTJT919",
+                "plus.unipush.appkey"   : "IMMaLDc5VSA7rR59YLYM2A",
+                "plus.unipush.appsecret": "yE88bogShw5E6KTNip1nFA",
                 "XIAOMI_APP_ID"         : "2882303761520150883",
                 "XIAOMI_APP_KEY"        : "5512015069883",
-                "VIVO_APP_ID"           : "105553571",
-                "VIVO_APP_KEY"          : "c97ffea4976de91dfc0e7748abee727f",
-                "OPPO_APP_KEY"          : "7e0f152a00ac41a8997045a0ca0fbfaa",
-                "OPPO_APP_SECRET"       : "c2592515a4ac438e9330d102c2cc113a",
-                "HUAWEI_APP_ID"         : "105992681",
                 "MEIZU_APP_ID"          : "148056",
                 "MEIZU_APP_KEY"         : "15df86b88c964c9290da3bdf12491ed9",
+                "HUAWEI_APP_ID"         : "105992681",
+                "OPPO_APP_KEY"          : "7e0f152a00ac41a8997045a0ca0fbfaa",
+                "OPPO_APP_SECRET"       : "c2592515a4ac438e9330d102c2cc113a",
+                "VIVO_APP_ID"           : "105553571",
+                "VIVO_APP_KEY"          : "c97ffea4976de91dfc0e7748abee727f",
+                "HONOR_APP_ID": "",
 //                "GAODE_APP_KEY"         : "LVSBZ-XBW3P-O6ZDU-LLDZF-V3G7O-U7F56",
                 "GAODE_APP_KEY"         : "cc0726e84f5aaea07a41c874cc9dcb4e",
         ]
@@ -76,7 +77,7 @@ android {
                     if (outputFile != null && outputFile.name.endsWith('.apk')) {
                         // 输出apk名称为fb_xfezt_1.0.0_2.apk
 //                        fileName = "${variant.baseName}-v${variant.versionName}_${variant.versionCode}.apk"
-                        SimpleDateFormat dateFormat =new SimpleDateFormat("yyyyMMddHHmmss");
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
                         String formattedDate = dateFormat.format(new Date());
                         fileName = "${variant.baseName}_${variant.versionCode}_${formattedDate}.apk"
                         outputFileName = fileName
@@ -99,39 +100,71 @@ android {
 //            applicationIdSuffix ''
             resValue("string", "app_name", "享安全")
             manifestPlaceholders = [
-                    dcloud_appkey: "b300ca3fae8557d1fc64cd7f9bfb8c4f"
+                    dcloud_appkey  : "b300ca3fae8557d1fc64cd7f9bfb8c4f",
+                    "HUAWEI_APP_ID": "105992681",
             ]
-            versionCode 3393
-            versionName '3.3.93'
+            versionCode 3394
+            versionName '3.3.94'
         }
         cfd { //曹妃甸
             dimension 'brand'
             applicationIdSuffix 'cfd'
             resValue("string", "app_name", "京唐消防设施")
             manifestPlaceholders = [
-                    dcloud_appkey: "a146140f9b8a4cc27cf69d0b22b218c0"
+                    dcloud_appkey  : "a146140f9b8a4cc27cf69d0b22b218c0",
+                    "HUAWEI_APP_ID": "107953225",
             ]
             versionCode 300
             versionName "3.0.0"
         }
     }
 }
-
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'], exclude: [])
-    implementation 'androidx.appcompat:appcompat:1.0.0'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'], exclude: ['debug-server-release.aar'])
+    /*uniapp所需库-----------------------开始*/
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'com.facebook.fresco:fresco:2.5.0'
     implementation "com.facebook.fresco:animated-gif:2.5.0"
+    /*uniapp所需库-----------------------结束*/
+    // 基座需要，必须添加
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     implementation 'com.alibaba:fastjson:1.2.83'
     implementation 'androidx.webkit:webkit:1.3.0'
-    implementation 'androidx.annotation:annotation:1.6.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
+    implementation 'androidx.core:core:1.1.0'
+    implementation "androidx.fragment:fragment:1.1.0"
 
+    // 高德
     implementation 'com.amap.api:3dmap:9.5.0'
     implementation 'com.amap.api:search:9.4.5'
-    implementation 'com.huawei.hms:push:6.5.0.300'
+    // 推送
+    implementation 'com.getui:gtsdk:3.3.3.0'  //个推SDK
+    implementation 'com.getui:gtc:3.2.9.0'  //个推核心组件
+    // 根据所需厂商选择集成
+    implementation 'com.getui.opt:hwp:3.1.1'   // 华为
+    implementation 'com.huawei.hms:push:6.11.0.300' // 华为
 
+    implementation 'com.getui.opt:xmp:3.3.1'   // 小米
+
+    implementation 'com.assist-v3:oppo:3.3.0'  // oppo
+    implementation 'com.google.code.gson:gson:2.6.2' // oppo
+    implementation 'commons-codec:commons-codec:1.6' // oppo
+    implementation 'androidx.annotation:annotation:1.1.0' // oppo
+
+    implementation 'com.assist-v3:vivo:3.1.1'  // vivo
+
+    implementation 'com.getui.opt:mzp:3.2.4'   // 魅族
+
+//    implementation 'com.getui.opt:honor:3.6.0' // 荣耀
+//    implementation 'com.hihonor.mcs:push:7.0.61.303' // 荣耀
+
+//    implementation "com.alibaba:fastjson:1.2.83" // debug
+//    implementation "com.squareup.okhttp3:okhttp:3.12.12" // debug
 }
 
