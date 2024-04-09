@@ -46,5 +46,5 @@
         <service name="push" value="io.dcloud.feature.aps.APSFeatureImpl"/>
 		<service name="Statistic" value="io.dcloud.feature.statistics.StatisticsBootImpl"/>
 		<service name="Downloader" value="io.dcloud.net.DownloaderBootImpl"/>
-	</services>
+    </services>
 </properties>
