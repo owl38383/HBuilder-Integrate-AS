@@ -103,8 +103,8 @@ android {
                     dcloud_appkey  : "b300ca3fae8557d1fc64cd7f9bfb8c4f",
                     "HUAWEI_APP_ID": "105992681",
             ]
-            versionCode 3397
-            versionName '3.3.97'
+            versionCode 3398
+            versionName '3.3.98'
         }
         cfd { //曹妃甸
             dimension 'brand'
